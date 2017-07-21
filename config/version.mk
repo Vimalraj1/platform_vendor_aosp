@@ -13,12 +13,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#JDCTeam versioning
-ifndef JDC_BUILD_TYPE
-    JDC_BUILD_TYPE := STABLE
+#Mainstage Versioning
+MAINSTAGE_VERSION = v1.0
+
+ifndef MAINSTAGE_BUILD_TYPE
+    MAINSTAGE_BUILD_TYPE := UNOFFICIAL
+    PLATFORM_VERSION_CODENAME := UNOFFICIAL
+endif 
+
+ifeq ($(MAINSTAGE_BUILD_TYPE), OFFICIAL)
+
+
 endif
 
-JDC_VERSION := $(PLATFORM_VERSION)-$(shell date +%Y%m%d)-$(JDC_BUILD_TYPE)
+MAINSTAGE_MOD_VERSION := MainstageOS-$(MAINSTAGE_VERSION)-$(shell date -u +%Y%m%d-%H%M)-$(MAINSTAGE_BUILD_TYPE)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.jdc.version=$(JDC_VERSION)
+  ro.mainstage.version=$(MAINSTAGE_VERSION) \
+  ro.mainstage.releasetype=$(MAINSTAGE_BUILD_TYPE) \
+  ro.modversion=$(MAINSTAGE_MOD_VERSION)
+  
+MAINSTAGE_DISPLAY_VERSION := MainstageOS-$(MAINSTAGE_VERSION)-$(MAINSTAGE_BUILD_TYPE)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.mainstage.display.version=$(MAINSTAGE_DISPLAY_VERSION)
