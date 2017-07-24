@@ -38,10 +38,10 @@ PRODUCT_COPY_FILES += \
 # Custom MainstageOS packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
+	Firefox \
     LatinIME \
     LiveWallpapers \
-    Launcher3 \
-    WallpaperPickerGoogle \
+    Lawnchair \
     ThemeInterfacer \
     Turbo
 

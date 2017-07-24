@@ -1,4 +1,5 @@
-# Copyright (C) 2017 The MainstageOS Project
+#
+# Copyright (C) 2017 MainstageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,29 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-LOCAL_PATH:= $(call my-dir)
-
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := Turbo
-LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := Turbo/Turbo.apk
-LOCAL_CERTIFICATE := platform
-LOCAL_MODULE_CLASS := APPS
-LOCAL_PRIVILEGED_MODULE := true
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_DEX_PREOPT := false
-include $(BUILD_PREBUILT)
-
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := PixelLauncher
-LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := PixelLauncher/PixelLauncher.apk
-LOCAL_CERTIFICATE := platform
-LOCAL_MODULE_CLASS := APPS
-LOCAL_PRIVILEGED_MODULE := true
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_DEX_PREOPT := false
-include $(BUILD_PREBUILT)
+LOCAL_PATH := $(call my-dir)
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
