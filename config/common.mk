@@ -38,7 +38,6 @@ PRODUCT_COPY_FILES += \
 # Custom MainstageOS packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
-	Firefox \
     LatinIME \
     LiveWallpapers \
     Lawnchair \
