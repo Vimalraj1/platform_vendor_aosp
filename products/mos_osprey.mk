@@ -1,4 +1,5 @@
-# Copyright (C) 2017 The MainstageOS Project
+# Copyright (C) 2017 MainstageOS Project
+#           
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,13 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Inherit AOSP device configuration for osprey
+$(call inherit-product, device/motorola/osprey/aosp_osprey.mk)
 
-if [ -z ${variant} ]; then
-  export ARRAY=(user userdebug);
-fi
+# Boot animation
+TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 1280
 
-for variant in "${ARRAY[@]}"; do
- for combo in $(ls vendor/aosp/products/mos_*.mk | sed -e 's/vendor\/aosp\/products\///' -e "s/.mk/-$variant/"); do
- add_lunch_combo ${combo}
- done
-done
+## Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := osprey
+PRODUCT_NAME := mos_osprey
+PRODUCT_BRAND := Motorola
+PRODUCT_MANUFACTURER := Motorola
+PRODUCT_RELEASE_NAME := osprey
+
